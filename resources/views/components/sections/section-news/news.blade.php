@@ -1,5 +1,10 @@
-<section class="w-full flex flex-col items-center my-20">
-    <h2 class="font-extrabold text-5xl mb-8 w-11/12">Berita Dan Pengumuman</h2>
+<section class="w-full flex flex-col items-center my-30">
+    <h3 data-aos="fade-down" class="flex w-11/12 mb-4 items-center gap-2 text-sm"><span class="w-12 h-0.5 bg-black"></span>
+        SMK Walisongo
+        Pecangaan
+        <span class="w-12 h-0.5 bg-black"></span>
+    </h3>
+    <h2 data-aos="fade-down" data-aos-delay="100" class="font-extrabold text-5xl mb-8 w-11/12">Berita Dan Pengumuman</h2>
     <x-sections.section-news.main-news :newses="$newses"></x-sections.section-news.main-news>
     <x-sections.section-news.news-cards :newses="$newses"></x-sections.section-news.news-cards>
 

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContactsRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
-use App\Models\Contacts;
+use App\Models\Activity;
+use App\Models\Contact;
 use App\Models\Major;
 use App\Models\News;
 use App\Models\User;
@@ -18,10 +19,13 @@ class UserController extends Controller
 {
     public function home(): View
     {
+        $activities = Activity::activityItem()->get();
+        $newses = News::getNews();
         return view('home', [
             'title' => 'smkw9',
-            'newses' => News::all(),
-            'majors' => Major::all()
+            'newses' => $newses,
+            'majors' => Major::all(),
+            'activities' => $activities
         ]);
     }
 
@@ -57,7 +61,7 @@ class UserController extends Controller
     public function postContacts(ContactsRequest $request)
     {
         $validated = $request->validated();
-        Contacts::create($validated);
+        Contact::create($validated);
         return redirect('/#contact')->with('successMessage', 'Berhasil mengirim pesan!');
     }
 }

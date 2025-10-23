@@ -30,3 +30,7 @@ Route::get('/dashboard/admin/jurusan', [AdminController::class, 'major']);
 Route::view('/dashboard/tambahJurusan', 'components.form.add-major', ['title' => 'Tambah Jurusan']);
 Route::post('/dashboard/tambahJurusan', [AdminController::class, 'postMajor']);
 Route::post('/', [UserController::class, 'postContacts']);
+
+Route::get('/dashboard/admin/kegiatan', [AdminController::class, 'activitiesView']);
+Route::view('/dashboard/tambahKegiatan', 'components.form.add-activity', ['title' => 'Tambah Kegiatan']);
+Route::post('/dashboard/tambahKegiatan', [AdminController::class, 'postActivity']);

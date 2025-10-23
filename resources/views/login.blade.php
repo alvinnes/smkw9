@@ -15,7 +15,8 @@
 
     <form action="/masuk" method="post" class="w-xl rounded-sm p-4 flex flex-col gap-4">
         @csrf
-        <x-input.input-item key="email" placeholder="example@gmail.com" icon="lucide-mail"></x-input.input-item>
+        <x-input.input-item key="email" placeholder="example@gmail.com" icon="lucide-mail"
+            autofocus="autofocus"></x-input.input-item>
         <x-input.input-password></x-input.input-password>
 
         <button class="bg-[#1d1d1d] text-white cursor-pointer font-semibold py-3 rounded-md">Masuk Sekarang</button>

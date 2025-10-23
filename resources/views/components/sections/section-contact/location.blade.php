@@ -1,4 +1,4 @@
- <div class="w-full h-full bg-white shadow-sm rounded-md p-8">
+ <div class="w-full h-full bg-white shadow-sm rounded-md p-8" data-aos="fade-down">
      <div class="flex justify-between">
          <h2 class="text-2xl font-semibold  flex items-center gap-3 mb-8 justify-center"><span
                  class="bg-indigo-400/30 p-1 rounded-md size-9 flex justify-center items-center">@svg('lucide-map', 'size-full p-1 bg-indigo-300/50 rounded-md')</span>

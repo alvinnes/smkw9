@@ -11,8 +11,8 @@
             class="w-4xl rounded-sm p-4 flex gap-4">
             @csrf
             <div class="flex flex-col gap-4 w-7/12">
-                <x-input.input-item key="nama" placeholder="isi nama jurusan"
-                    icon="lucide-user"></x-input.input-item>
+                <x-input.input-item key="nama" placeholder="isi nama jurusan" icon="lucide-user"
+                    autofocus="autofocus"></x-input.input-item>
                 <div class="flex gap-2">
                     <x-input.input-file key="img_url" height="h-68.5" text="Upload gambar jurusan">
                         <img id="img-preview" class="size-full absolute rounded-md object-cover">

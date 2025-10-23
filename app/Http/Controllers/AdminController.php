@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ActivityRequest;
 use App\Http\Requests\NewsRequest;
 use App\Http\Requests\PostMajorRequest;
 use App\Http\Requests\UpdateNewsRequest;
+use App\Models\Activity;
 use App\Models\Major;
 use App\Models\News;
 use App\Models\User;
@@ -25,6 +27,11 @@ class AdminController extends Controller
             'name' => 'Jurusan',
             'link' => '/dashboard/admin/jurusan',
             'active' => 'dashboard/admin/jurusan'
+        ],
+        [
+            'name' => 'Kegiatan',
+            'link' => '/dashboard/admin/kegiatan',
+            'active' => 'dashboard/admin/kegiatan'
         ],
     ];
 
@@ -132,5 +139,29 @@ class AdminController extends Controller
         $validated['id'] = Auth::id();
         Major::create($validated);
         return redirect('/dashboard/admin/jurusan')->with('successMajor', 'Berhasil menambah jurusan');
+    }
+
+    public function activitiesView(): View
+    {
+        return view('components.dashboard-admin.activity.activities', [
+            'title' => 'Kegiatan',
+            'sidebarItem' => $this->sidebarItem,
+            'activities' => Activity::all()
+        ]);
+    }
+
+    public function postActivity(ActivityRequest $request)
+    {
+        $validated = $request->validated();
+        $ext = last(explode('/', $request->img_url->getClientMimeType()));
+        $filename = strtoupper(date('Y-m-d-s') . '-' . $request->img_url->getClientOriginalName()) . ".$ext";
+
+        if ($request->hasFile('img_url')) {
+            $path = $request->img_url->storeAs('upload', $filename);
+            $validated['img_url'] = $path;
+        }
+
+        Activity::create($validated);
+        return redirect('/dashboard/admin/kegiatan')->with('successActivity', 'Berhasil menambah kegiatan!');
     }
 }

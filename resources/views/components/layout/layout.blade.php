@@ -16,7 +16,7 @@
     <script src="@vite('resources/js/app.js')"></script>
 </head>
 
-<body class="w-full min-h-screen font-['Montserrat'] flex flex-col items-center">
+<body class="w-full min-h-screen font-['Montserrat'] flex flex-col items-center overflow-x-hidden">
     <x-navbar.navbar></x-navbar.navbar>
     {{ $slot }}
 </body>

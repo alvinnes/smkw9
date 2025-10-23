@@ -11,10 +11,10 @@
             class="w-4xl rounded-sm p-4 flex gap-4">
             @csrf
             <div class="flex flex-col gap-4 w-7/12">
-                <x-input.input-item key="judul_berita" placeholder="buat judul berita"
-                    icon="lucide-user"></x-input.input-item>
-                <x-input.input-item key="kategori" placeholder="kategori berita"
-                    icon="lucide-user-circle"></x-input.input-item>
+                <x-input.input-item key="judul_berita" placeholder="buat judul berita" icon="lucide-user"
+                    autofocus="aautofocus"></x-input.input-item>
+                <x-input.input-item key="kategori" placeholder="kategori berita" icon="lucide-user-circle"
+                    autofocus=""></x-input.input-item>
                 <x-input.input-file height="h-50" key="img_url" text="Upload gambar berita">
                     <img id="img-preview" class="size-full absolute rounded-md object-cover">
                 </x-input.input-file>
