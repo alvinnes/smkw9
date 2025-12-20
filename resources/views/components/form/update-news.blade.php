@@ -16,7 +16,7 @@
                     value="{{ old('judul_berita', $oldNews['judul_berita']) }}" autofocus></x-input.input-item-profile>
                 <x-input.input-item-profile key="kategori" placeholder="Ubah kategori" icon="lucide-user"
                     value="{{ old('kategori', $oldNews['kategori']) }}"></x-input.input-item-profile>
-                <x-input.input-file height="h-50" key="img_url" key="Upload gambar berita">
+                <x-input.input-file height="h-50" text="" key="img_url" key="Upload gambar berita">
                     <img src="{{ asset('storage/' . $oldNews['img_url']) }}" id="img-preview"
                         class="size-full absolute rounded-md object-cover">
                 </x-input.input-file>

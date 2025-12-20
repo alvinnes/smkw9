@@ -1,11 +1,13 @@
-<nav
-    class="fixed top-0 left-0 right-0 py-4 px-[5%] flex bg-white boredr-solid border-b-1 z-9999 border-slate-200 justify-between items-center text-[#1d1d1d]">
+<nav class="fixed top-0 left-0 right-0 py-4 px-[5%] flex bg-transparent z-9999 justify-between items-center text-white">
     <div class="flex gap-15 items-center">
-        <h3 class="text-2xl font-semibold">smkw9</h3>
-        <ul class="flex gap-12 mt-1">
-            <x-navbar.navbar-item link="/">Beranda</x-navbar.navbar-item>
+        <img src="{{ asset('/img/logo-smk.jpeg') }}" alt="logo-smk" class="size-20 bg-none">
+        <ul class="flex gap-8 mt-1">
+            <x-navbar.navbar-item link="#beranda">Beranda</x-navbar.navbar-item>
             <x-navbar.navbar-item link="#tentang">Tentang</x-navbar.navbar-item>
+            <x-navbar.navbar-item link="#jurusan">Jurusan</x-navbar.navbar-item>
+            <x-navbar.navbar-item link="#kegiatan">Kegiatan</x-navbar.navbar-item>
             <x-navbar.navbar-item link="#berita">Berita</x-navbar.navbar-item>
+            <x-navbar.navbar-item link="#pendaftaran">Pendaftaran</x-navbar.navbar-item>
             <x-navbar.navbar-item link="#hubungi">Hubungi</x-navbar.navbar-item>
         </ul>
     </div>

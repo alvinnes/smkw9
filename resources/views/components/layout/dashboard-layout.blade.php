@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title }}</title>
     @vite('resources/css/app.css')
 
@@ -16,7 +17,7 @@
     <script src="@vite('resources/js/app.js')"></script>
 </head>
 
-<body class="w-full h-screen font-['Montserrat'] bg-slate-100/50 p-2 gap-4 flex justify-between items-center">
+<body class="w-full h-screen font-['Montserrat'] bg-slate-100 flex justify-between">
     @can('is-admin')
         <x-sidebar.sidebar-admin :sidebarItem="$sidebarItem"></x-sidebar.sidebar-admin>
     @else

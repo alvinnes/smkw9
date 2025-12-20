@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ActivityRequest;
 use App\Http\Requests\NewsRequest;
 use App\Http\Requests\PostMajorRequest;
-use App\Http\Requests\UpdateNewsRequest;
 use App\Models\Activity;
+use App\Models\Gallery;
 use App\Models\Major;
 use App\Models\News;
-use App\Models\User;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+
+use function Pest\Laravel\delete;
 
 class AdminController extends Controller
 {
@@ -32,6 +33,11 @@ class AdminController extends Controller
             'name' => 'Kegiatan',
             'link' => '/dashboard/admin/kegiatan',
             'active' => 'dashboard/admin/kegiatan'
+        ],
+        [
+            'name' => 'Gallery',
+            'link' => '/dashboard/admin/gallery',
+            'active' => 'dashboard/admin/gallery'
         ],
     ];
 
@@ -103,11 +109,12 @@ class AdminController extends Controller
 
     public function deleteNews(int $id)
     {
-        $news = News::find($id);
-        News::where('id', $id)->delete();
-        Storage::delete($news['img_url']);
-
-        return redirect('/dashboard/admin/news')->with('successDelete', 'Berhasil menghapus berita!');
+        $news = News::findOrFail($id);
+        if ($news->img_url) {
+            Storage::delete($news->img_url);
+        }
+        $news->delete();
+        return response()->json(['message' => "Berhasil menghapus kegiatan!"]);
     }
 
     public function major(): View
@@ -163,5 +170,43 @@ class AdminController extends Controller
 
         Activity::create($validated);
         return redirect('/dashboard/admin/kegiatan')->with('successActivity', 'Berhasil menambah kegiatan!');
+    }
+
+    public function deleteActivity(string $id)
+    {
+        $activity = Activity::findOrFail($id);
+        if ($activity->img_url) {
+            Storage::delete($activity->img_url);
+        }
+        $activity->delete();
+        return response()->json(['message' => "Berhasil menghapus kegiatan!"]);
+    }
+
+    public function galleryView(): View
+    {
+        return view('components.dashboard-admin.gallery.gallery', [
+            'title' => 'Gallery',
+            'sidebarItem' => $this->sidebarItem
+        ]);
+    }
+
+    public function postGallery(Request $request)
+    {
+        $validated = $request->validate([
+            'img_url' => 'required'
+        ], [
+            'required' => 'gambar tidak boleh kosong!'
+        ]);
+
+        $ext = last(explode('/', $request->img_url->getClientMimeType()));
+        $filename = strtoupper(date('Y-m-d-s') . '-' . $request->img_url->getClientOriginalName()) . ".$ext";
+
+        if ($request->hasFile('img_url')) {
+            $path = $request->img_url->storeAs('upload/gallery', $filename);
+            $validated['img_url'] = $path;
+        }
+
+        Gallery::create($validated);
+        return redirect('/dashboard/admin/gallery')->with('successGallery', 'Berhasil menambahkan gambar!');
     }
 }

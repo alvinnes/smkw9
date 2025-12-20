@@ -1,6 +1,6 @@
 <x-layout.form-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
-    <div class="w-xl ml-8.5 mb-8">
+    <div class="w-lg ml-8.5 mb-8">
         <h2 class="text-4xl font-semibold mb-3">Masuk ke SMKW9!</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, temporibus voluptate? Consectetur repellat
             neque in!</p>
@@ -13,7 +13,7 @@
         </div>
     @endif
 
-    <form action="/masuk" method="post" class="w-xl rounded-sm p-4 flex flex-col gap-4">
+    <form action="/masuk" method="post" class="w-lg rounded-sm p-4 flex flex-col gap-4">
         @csrf
         <x-input.input-item key="email" placeholder="example@gmail.com" icon="lucide-mail"
             autofocus="autofocus"></x-input.input-item>

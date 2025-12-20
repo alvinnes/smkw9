@@ -1,4 +1,4 @@
- <div class="w-[31rem] rounded-sm border-solid border-1 p-4 border-slate-200">
+ <div class="w-[23rem] rounded-sm bg-white p-4 shadow-sm">
      <div class="flex justify-between">
          <x-dashboard-admin.news.header-news-item :news="$news"></x-dashboard-admin.news.header-news-item>
          <p class="text-[0.7em] flex items-center gap-2 text-[grey]">@svg('lucide-calendar', 'size-3 -mt-0.5')

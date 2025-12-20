@@ -2,40 +2,80 @@ import "./bootstrap";
 import AOS from "aos";
 
 AOS.init({
-    duration: 700,
+    duration: 900,
     offset: 80,
     once: true,
+    throttleDelay: 50,
 });
 
+const btnDelete = document.querySelectorAll(".btn-delete");
+const modalDelete = document.querySelectorAll(".modal-delete");
+const modalSuccess = document.querySelector(".modal-success");
+let selectedId = null;
+
+const closeModal = () => {
+    modalDelete.forEach((item) => {
+        item.classList.add("opacity-0", "invisible");
+    });
+};
+
+btnDelete.forEach((item, index) => {
+    item.addEventListener("click", () => {
+        selectedId = item.dataset.id;
+        modalDelete[index].classList.remove("opacity-0", "invisible");
+    });
+});
+
+const deleteActivities = () => {
+    const path = `/dashboard/hapusKegiatan/${selectedId}`;
+    deleteData(path);
+};
+
+const deleteNews = () => {
+    const path = `/dashboard/hapusBerita/${selectedId}`;
+    deleteData(path);
+};
+
+const deleteData = async (path) => {
+    try {
+        const csrf = document.querySelector('meta[name="csrf-token"]').content;
+        const request = await fetch(path, {
+            method: "DELETE",
+            headers: {
+                "X-CSRF-TOKEN": csrf,
+                Accept: "application/json",
+            },
+        });
+        if (request.ok) {
+            modalSuccess.classList.add("visible", "opacity-100", "top-16");
+            setTimeout(() => {
+                window.location.reload();
+            }, 800);
+        }
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+window.cancelAddImg = cancelAddImg;
+window.showAddImg = showAddImg;
+window.closeModal = closeModal;
+window.deleteActivities = deleteActivities;
+window.deleteNews = deleteNews;
+
+const formAddImg = document.querySelector(".form-img");
 const img = document.getElementById("img_url");
 const bgImg = document.getElementById("bg_img");
 const imgPreview = document.getElementById("img-preview");
 const bgImgPreview = document.getElementById("bg-img-preview");
 
-const modalWarn = document.querySelectorAll(".modal-warn");
-const btnDelete = document.querySelectorAll(".btn-delete");
-const btnCancel = document.querySelectorAll(".cancel");
+const showAddImg = () => {
+    formAddImg.classList.add("mt-0", "opacity-100", "visible");
+};
 
-btnDelete.forEach((item,index) => {
-    item.addEventListener("click", () => {
-        modalWarn[index].style.opacity = "100";
-    });
-});
-
-btnCancel.forEach((btn,index) => {
-    btn.addEventListener("click", () => {
-        modalWarn[index].style.opacity = "0";
-    });
-});
-
-const deleteActivity = async (id) => {
-    alert(id)
-    const request = await fetch("/dashboard/admin/kegiatan/" + id, {
-        method: "POST"
-    })
-}
-
-window.deleteActivity = deleteActivity
+const cancelAddImg = () => {
+    formAddImg.classList.remove("mt-0", "opacity-100", "visible");
+};
 
 if (img) {
     img.addEventListener("change", () => {

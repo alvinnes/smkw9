@@ -1,4 +1,4 @@
-<section class="w-11/12 my-30 flex flex-col items-center gap-8 px-2">
+<section id="kegiatan" class="w-11/12 my-30 flex flex-col items-center gap-8 px-2">
     <div class="w-2xl text-center flex flex-col items-center gap-4 mb-4" data-aos="fade-down">
         <h3 class="flex items-center gap-2 text-sm"><span class="w-12 h-0.5 bg-black"></span> SMK Walisongo Pecangaan
             <span class="w-12 h-0.5 bg-black"></span>

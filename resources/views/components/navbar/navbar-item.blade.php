@@ -1,1 +1,1 @@
-<li class="text-[grey] hover:text-black"><a href="{{ $link }}">{{ $slot }}</a></li>
+<li class="hover:font-semibold"><a href="{{ $link }}">{{ $slot }}</a></li>

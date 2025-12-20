@@ -1,0 +1,24 @@
+<x-layout.form-layout>
+    <x-slot:title>{{ $title }}</x-slot:title>
+    <div class="w-xl ml-8.5 mb-8">
+        <h2 class="text-4xl font-semibold mb-3">Reset Password</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, temporibus voluptate? Consectetur repellat
+            neque in!</p>
+    </div>
+
+    @if (session()->has('success'))
+        <div id="flash" class="w-[34rem] p-4 text-green-700 bg-green-100/50 flex justify-between items-center">
+            {{ session('success') }}
+            <span id="btnClose">@svg('lucide-x', 'size-4 cursor-pointer')</span>
+        </div>
+    @endif
+
+    <form action="/masuk" method="post" class="w-xl rounded-sm p-4 flex flex-col gap-4">
+        @csrf
+        <x-input.input-password autofocus="autofocus"></x-input.input-password>
+        <x-input.input-item type="password" key="ulangi_password" placeholder="konfirmasi password" icon="lucide-repeat"
+            autofocus=""></x-input.input-item>
+
+        <button class="bg-[#1d1d1d] text-white cursor-pointer font-semibold py-3 rounded-md">Reset</button>
+    </form>
+</x-layout.form-layout>
