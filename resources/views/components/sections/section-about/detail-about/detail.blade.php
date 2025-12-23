@@ -6,18 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }}</title>
-    @vite(['resources/css/app.css', 'resources/js/swiper.js'])
+    @vite(['resources/css/app.css', 'resources/js/swiper.js', 'resources/js/app.js'])
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 
-    <script src="@vite('resources/js/app.js')"></script>
 </head>
 
 <body class="w-full min-h-screen font-['Montserrat'] flex flex-col items-center overflow-x-hidden">
-    <main class="w-10/12">
+    <main class="w-11/12">
         <h1 data-aos="fade-down" data-aos-delay="200"
             class="text-4xl mb-6 w-3xl leading-11 font-extrabold text-shadow-2xs">Kenali Sekolah SMK Walisongo
             Pecangaan
@@ -31,10 +30,12 @@
                 </swiper-slide>
             @endforeach
         </swiper-container>
-        <x-sections.section-about.detail-about.history></x-sections.section-about.detail-about.history>
-        <x-sections.section-about.detail-about.profile></x-sections.section-about.detail-about.profile>
-        <x-sections.section-about.detail-about.vimi></x-sections.section-about.detail-about.vimi>
-        <x-sections.section-about.detail-about.facility></x-sections.section-about.detail-about.facility>
+        <div class="w-11/12 mx-auto">
+            <x-sections.section-about.detail-about.history></x-sections.section-about.detail-about.history>
+            <x-sections.section-about.detail-about.profile></x-sections.section-about.detail-about.profile>
+            <x-sections.section-about.detail-about.vimi></x-sections.section-about.detail-about.vimi>
+            <x-sections.section-about.detail-about.facility></x-sections.section-about.detail-about.facility>
+        </div>
     </main>
 </body>
 

@@ -1,4 +1,4 @@
-<section id="jurusan" class="w-11/12 rounded-md h-160 relative my-30">
+<section id="jurusan" class="w-11/12 rounded-md h-full sm:h-160 relative flex flex-col items-center">
     <h3 data-aos="fade-down" class="flex w-11/12 mb-4 items-center gap-2 text-sm"><span class="w-12 h-0.5 bg-black"></span>
         SMK Walisongo
         Pecangaan

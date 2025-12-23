@@ -1,4 +1,4 @@
-<aside class="w-[20rem] p-4 shadow-sm h-full bg-[#62A388] -ml-5">
+<aside class="w-[20rem] p-4 shadow-sm h-full bg-[#62A388]">
     <div class="mt-4 flex items-center gap-4">
         @svg('lucide-school', 'size-10 text-white')
         <h3 class="text-4xl font-bold text-white"><a href="/">SMKW9</a></h3>

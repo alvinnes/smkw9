@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Gallery extends Model
 {
-    protected $fillable = ['img_url'];
+    protected $fillable = ['img_url', 'size_img'];
 }

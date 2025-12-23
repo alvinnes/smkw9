@@ -15,16 +15,6 @@
         <x-modal.modal-succes key="successUpdate"></x-modal.modal-succes>
         <x-modal.modal-succes key="successActivity"></x-modal.modal-succes>
 
-        <div class="grid grid-cols-3 cursor-pointer place-items-center gap-x-10 gap-y-6">
-            @foreach ($activities as $activity)
-                <x-dashboard-admin.activity.activity-item :activity="$activity"></x-dashboard-admin.activity.activity-item>
-            @endforeach
-        </div>
 
-        @if (blank($activities))
-            <div>
-                <h4 class="text-5xl font-bold text-[#1d1d1d]">Belum ada berita</h4>
-            </div>
-        @endif
     </main>
 </x-layout.dashboard-layout>

@@ -39,16 +39,23 @@ class AdminController extends Controller
             'link' => '/dashboard/admin/gallery',
             'active' => 'dashboard/admin/gallery'
         ],
+        [
+            'name' => 'Pesan',
+            'link' => '/dashboard/admin/pesan',
+            'active' => 'dashboard/admin/pesan'
+        ],
     ];
 
     public function admin(): View
     {
 
-        $newses = News::all();
+        $newses = News::paginate(6);
+        $pages = $newses->getUrlRange(1, min(3, $newses->lastPage()));
         return view('components.dashboard-admin.news.news', [
             'title' => 'Berita',
             'newses' => $newses,
-            'sidebarItem' => $this->sidebarItem
+            'sidebarItem' => $this->sidebarItem,
+            'pages' => $pages
         ]);
     }
 
@@ -164,7 +171,7 @@ class AdminController extends Controller
         $filename = strtoupper(date('Y-m-d-s') . '-' . $request->img_url->getClientOriginalName()) . ".$ext";
 
         if ($request->hasFile('img_url')) {
-            $path = $request->img_url->storeAs('upload', $filename);
+            $path = $request->img_url->storeAs('upload/activity', $filename);
             $validated['img_url'] = $path;
         }
 
@@ -193,11 +200,13 @@ class AdminController extends Controller
     public function postGallery(Request $request)
     {
         $validated = $request->validate([
-            'img_url' => 'required'
+            'img_url' => 'required',
+            'size_img' => 'required'
         ], [
-            'required' => 'gambar tidak boleh kosong!'
+            'required.img_url' => 'gambar tidak boleh kosong!',
+            'required.size_img' => 'ukuran gambar tidak boleh kosong!'
         ]);
-
+        $validated['author_id'] = Auth::id();
         $ext = last(explode('/', $request->img_url->getClientMimeType()));
         $filename = strtoupper(date('Y-m-d-s') . '-' . $request->img_url->getClientOriginalName()) . ".$ext";
 
@@ -208,5 +217,13 @@ class AdminController extends Controller
 
         Gallery::create($validated);
         return redirect('/dashboard/admin/gallery')->with('successGallery', 'Berhasil menambahkan gambar!');
+    }
+
+    public function messageView(): View
+    {
+        return view('components.dashboard-admin.contact.contact', [
+            'title' => "Pesan",
+            'sidebarItem' => $this->sidebarItem
+        ]);
     }
 }

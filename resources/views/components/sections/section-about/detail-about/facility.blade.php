@@ -1,6 +1,6 @@
 <div class="mt-30  mb-20" data-aos="fade-up">
     <h2 class="font-semibold text-3xl mb-4">Fasilitas</h2>
-    <div class="w-full rounded-md bg-slate-100 p-10 flex justify-around">
+    <div class="w-full rounded-md bg-[#55AD9B] text-white p-10 flex justify-around">
         <ul class="list-disc flex flex-col gap-2">
             <li>22 ruang kelas</li>
             <li>3 ruang laboratorium komputer</li>

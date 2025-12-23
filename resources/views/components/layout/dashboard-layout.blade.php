@@ -7,14 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title }}</title>
-    @vite('resources/css/app.css')
+    <link rel="shortcut icon" href="{{ asset('img/logo-smk.png') }}" type="image/x-icon">
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/modalDelete.js'])
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 
-    <script src="@vite('resources/js/app.js')"></script>
 </head>
 
 <body class="w-full h-screen font-['Montserrat'] bg-slate-100 flex justify-between">

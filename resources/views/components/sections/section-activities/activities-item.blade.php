@@ -1,7 +1,7 @@
-<div class="w-full grid grid-cols-3 place-items-center gap-8 mt-10">
+<div class="w-full grid grid-cols-1 sm:grid-cols-3 place-items-center gap-4 sm:gap-8 mt-10" data-aos="fade-up"
+    data-aos-delay="200">
     @foreach ($activities as $activity)
-        <div class="w-[28rem] rounded-sm border-solid border-1 p-4 border-slate-200" data-aos="fade-up"
-            data-aos-delay="{{ $activity['id'] }}00">
+        <div class="w-full sm:w-[28rem] rounded-sm border-solid border-1 p-4 border-slate-200">
             <p class="text-[0.7em] flex items-center gap-2 text-[grey]">@svg('lucide-calendar', 'size-3 -mt-0.5')
                 {{ $activity['created_at']->diffForHumans() }}</p>
             <img src="{{ asset('storage/' . $activity['img_url']) }}" alt="foto berita"

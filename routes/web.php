@@ -43,3 +43,5 @@ Route::delete('/dashboard/hapusKegiatan/{selectedId}', [AdminController::class, 
 
 Route::get('/dashboard/admin/gallery', [AdminController::class, 'galleryView']);
 Route::post('/dashboard/admin/gallery', [AdminController::class, 'postGallery']);
+
+Route::get("/dashboard/admin/pesan", [AdminController::class, 'messageView']);

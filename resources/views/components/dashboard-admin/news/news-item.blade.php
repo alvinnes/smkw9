@@ -1,4 +1,4 @@
- <div class="w-[23rem] rounded-sm bg-white p-4 shadow-sm">
+ <div class="w-[24rem] rounded-sm bg-white p-4 shadow-md">
      <div class="flex justify-between">
          <x-dashboard-admin.news.header-news-item :news="$news"></x-dashboard-admin.news.header-news-item>
          <p class="text-[0.7em] flex items-center gap-2 text-[grey]">@svg('lucide-calendar', 'size-3 -mt-0.5')
@@ -12,7 +12,7 @@
          </h2>
          <p class="text-sm line-clamp-2 group-hover:underline text-ellipsis">{{ $news['isi_berita'] }}
          </p>
-         <div class="flex items-center gap-4 mt-5">
+         <div class="flex items-center gap-4 mt-3">
              <img src="{{ asset('storage/' . $news['img_url']) }}" alt="foto profil"
                  class="size-12 rounded-full bg-slate-100 object-cover p-1">
              <div>

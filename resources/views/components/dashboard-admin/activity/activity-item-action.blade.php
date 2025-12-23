@@ -13,4 +13,4 @@
     </div>
 </div>
 
-<x-modal.modal-delete name="kegiatan" clicked="deleteActivities"></x-modal.modal-delete>
+<x-modal.modal-delete name="kegiatan" clicked="deleteActivities()"></x-modal.modal-delete>

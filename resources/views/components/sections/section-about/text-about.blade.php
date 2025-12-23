@@ -1,6 +1,6 @@
-<div class="flex flex-col w-[38rem] gap-6" data-aos="fade-left" data-aos-delay="200">
+<div class="flex flex-col sm:w-[38rem] w-full gap-6" data-aos="fade-left" data-aos-delay="200">
     <h2 class="text-2xl font-semibold">SMK Walisongo Pecangaan</h2>
-    <h3 class="font-semibold flex gap-4 -mt-4"><span>#SMKBisa</span> <span>#SMKHebat</span>
+    <h3 class="font-semibold flex-wrap flex gap-x-4 -mt-4"><span>#SMKBisa</span> <span>#SMKHebat</span>
         <span>#SMKW9SantunDanMandiri</span>
     </h3>
     <p>SMK Walisongo Pecangaan merupakan sekolah menengah kejuruan swasta yang berdiri pada tahun 2005 di bawah

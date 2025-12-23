@@ -21,8 +21,10 @@ class UserController extends Controller
 {
     public function home(): View
     {
-        $activities = Activity::activityItem()->get();
-        $newses = News::getNews();
+        $activities = Activity::paginate(6);
+        $pagesActivities = $activities->getUrlRange(1, min(3, $activities->lastPage()));
+        $newses = News::paginate(6);
+        $pagesNews = $newses->getUrlRange(1, min(3, $newses->lastPage()));
         $navbarItem = [
             [
                 "name" => "Beranda",
@@ -59,6 +61,8 @@ class UserController extends Controller
             'newses' => $newses,
             'majors' => Major::all(),
             'activities' => $activities,
+            'pagesActivities' => $pagesActivities,
+            'pagesNewses' => $pagesNews,
             'galleries' => Gallery::all(),
             'navbarItems' => $navbarItem
         ]);
